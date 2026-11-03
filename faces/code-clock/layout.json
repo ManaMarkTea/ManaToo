@@ -22,9 +22,31 @@
         },
         {
           "y": 9,
-          "x": 324,
+          "x": 242,
           "text": "MANATOO / LOCAL / v{{version}}",
           "color": "#789DA9"
+        }
+      ],
+      "items": [
+        {
+          "item_id": "battery",
+          "disp": 492,
+          "font": 138,
+          "x": 394,
+          "y": 4,
+          "w": 76,
+          "h": 22,
+          "size": 0,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "asset:battery.bin",
+          "color_1": "#6BE891",
+          "color_2": "#030609"
         }
       ]
     },

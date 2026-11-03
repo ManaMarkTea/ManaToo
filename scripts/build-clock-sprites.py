@@ -32,6 +32,23 @@ for active in range(2):
 states[0].convert('RGB').save(assets / 'ampm.webp', save_all=True, append_images=[states[1].convert('RGB')], quality=95, duration=1000, loop=0)
 divm(assets / 'ampm.bin', states, 1000)
 
+# Native BATTERY uses ten charge bands, followed by ten charging-state bands.
+battery_font = ImageFont.truetype('C:/Windows/Fonts/consolab.ttf', 11)
+batteries = []
+for charging in (False, True):
+    for band in range(1, 11):
+        frame = Image.new('RGB', (76, 22), '#0B151E')
+        draw = ImageDraw.Draw(frame)
+        color = '#F57880' if band == 1 else '#6BE891'
+        draw.rectangle((1, 5, 27, 17), outline='#789DA9', width=1)
+        draw.rectangle((28, 9, 30, 13), fill='#789DA9')
+        draw.rectangle((3, 7, 3 + max(1, round(22 * band / 10)), 15), fill=color)
+        draw.text((34, 4), f'{band * 10}%', font=battery_font, fill=color)
+        if charging:
+            draw.polygon([(71, 4), (66, 11), (70, 11), (67, 18), (74, 9), (70, 9)], fill='#EDC778')
+        batteries.append(frame)
+divm(assets / 'battery.bin', batteries, 1000)
+
 # Native PHASE_MOON selects one of eight lunar-state frames, starting at new moon.
 moons = []
 for phase in range(8):

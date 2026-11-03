@@ -25,6 +25,26 @@
       "h": 30
     },
     {
+      "item_id": "battery",
+      "disp": 492,
+      "font": 138,
+      "x": 394,
+      "y": 4,
+      "w": 76,
+      "h": 22,
+      "size": 0,
+      "alig": 3,
+      "sep": 0,
+      "angle": 0,
+      "hier": 2,
+      "transp": 100,
+      "animation": 0,
+      "image_id": 0,
+      "image_addr": "asset:battery.bin",
+      "color_1": "#6BE891",
+      "color_2": "#030609"
+    },
+    {
       "size": 0,
       "font": 138,
       "alig": 4,
@@ -367,6 +387,7 @@
   ],
   "ItemIdList": [
     "panel-header",
+    "battery",
     "panel-code-right",
     "panel-clock",
     "time",
