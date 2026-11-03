@@ -360,7 +360,20 @@
       "h": 82,
       "y": 296,
       "id": "weather",
-      "labels": [],
+      "labels": [
+        {
+          "y": 30,
+          "x": 148,
+          "text": "LO",
+          "color": "#668278"
+        },
+        {
+          "y": 56,
+          "x": 148,
+          "text": "HI",
+          "color": "#668278"
+        }
+      ],
       "title": "> weather/03  ~/Forecast.js",
       "items": [
         {
@@ -369,7 +382,7 @@
           "font": 138,
           "x": 8,
           "y": 35,
-          "w": 96,
+          "w": 100,
           "h": 44,
           "size": 28,
           "alig": 3,
@@ -387,9 +400,9 @@
           "item_id": "weather",
           "disp": 54,
           "font": 138,
-          "x": 108,
+          "x": 234,
           "y": 43,
-          "w": 110,
+          "w": 112,
           "h": 30,
           "size": 16,
           "alig": 3,
@@ -404,12 +417,32 @@
           "color_2": "#030609"
         },
         {
-          "item_id": "range",
-          "disp": 157,
+          "item_id": "temp-low",
+          "disp": 97,
           "font": 138,
-          "x": 226,
+          "x": 170,
+          "y": 26,
+          "w": 48,
+          "h": 25,
+          "size": 16,
+          "alig": 4,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#79CCD9",
+          "color_2": "#030609"
+        },
+        {
+          "item_id": "wind",
+          "disp": 147,
+          "font": 138,
+          "x": 398,
           "y": 46,
-          "w": 104,
+          "w": 58,
           "h": 27,
           "size": 13,
           "alig": 3,
@@ -420,19 +453,19 @@
           "animation": 0,
           "image_id": 0,
           "image_addr": "",
-          "color_1": "#B8CCD4",
+          "color_1": "#EDC778",
           "color_2": "#030609"
         },
         {
-          "item_id": "wind",
-          "disp": 147,
+          "item_id": "temp-high",
+          "disp": 96,
           "font": 138,
-          "x": 376,
-          "y": 46,
-          "w": 76,
-          "h": 27,
-          "size": 13,
-          "alig": 3,
+          "x": 170,
+          "y": 52,
+          "w": 48,
+          "h": 25,
+          "size": 16,
+          "alig": 4,
           "sep": 0,
           "angle": 0,
           "hier": 2,
@@ -449,7 +482,7 @@
           "kind": "wind",
           "y": 45,
           "color": "#EDC778",
-          "x": 346
+          "x": 368
         }
       ]
     },
