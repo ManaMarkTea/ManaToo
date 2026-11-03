@@ -11,7 +11,7 @@
     "device:info": "node scripts/device-info.mjs",
     "mcp": "node tools/mcp-divoom-lan/dist/index.js",
     "face:deploy": "node scripts/deploy-code-clock.mjs",
-    "face:draw": "pwsh -File scripts/draw-code-clock.ps1"
+    "face:draw": "pwsh -File scripts/draw-code-clock.ps1 && node scripts/compile-code-clock.mjs"
   },
   "engines": { "node": ">=20" }
 }

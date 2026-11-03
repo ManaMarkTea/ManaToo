@@ -20,7 +20,7 @@ Open the local URL printed by Vite (normally http://127.0.0.1:5173). Select the 
 
 ### Code Screensaver clock
 
-`faces/code-clock/` contains a terminal-style face inspired by ManaRenderer's CodeScreensaver: near-black panels, green outlines, line numbers, and syntax-colored snippets. Code panels are static artwork; the clock, date, weekday, sunrise, sunset, temperature, conditions, and daily temperature range are native live device elements in separate terminal panels. Weather and solar times use the location and weather service configured on the AstroToo. It runs without a connected PC.
+`faces/code-clock/` contains a terminal-style face inspired by ManaRenderer's CodeScreensaver: near-black panels, green outlines, line numbers, and syntax-colored snippets. The solid backdrop has no panel artwork. Eight independent image elements provide terminal frames, titles, and decorative labels; eight native text elements provide the clock, date, weekday, sunrise, sunset, temperature, conditions, and daily temperature range. The native DIY-text probe did not render a supplied literal on the development firmware, so decorative labels remain rasterized within each panel. Weather and solar times use the location and weather service configured on the AstroToo. It runs without a connected PC.
 
 ```powershell
 npm run face:deploy
@@ -28,7 +28,7 @@ npm run face:deploy
 
 This creates or updates the MCP-managed custom face, selects it, reads it back, and saves a device screenshot as `exports/code-clock.bmp`. It also saves the previously displayed configuration in `exports/before.json`. Other stock clockfaces remain available through the Divoom app.
 
-To customize: change time/date colors, positions, or sizes in `faces/code-clock/metadata.json`; edit `scripts/draw-code-clock.ps1` for the terminal artwork, then run `npm run face:draw` (Windows PowerShell + System.Drawing) and `npm run face:deploy`. The clock uses PlayerSansMono8x8 (font 116); information panels use Sono SemiBold (font 138). Both were confirmed installed on the development device. The background JPEG is committed, so drawing is optional.
+To customize: edit `faces/code-clock/layout.json`. Each panel has a position, dimensions, editable title/labels, and native `items` positioned relative to that panel. Run `npm run face:draw` (Windows PowerShell + System.Drawing) to generate the separate panel PNGs, solid backdrop, and `metadata.json`; then run `npm run face:deploy`. Deployment uploads panel files sequentially and binds their returned local references. Generated metadata contains portable `asset:` placeholders; use the deployment script to resolve them. Do not edit generated metadata directly. The clock uses PlayerSansMono8x8 (font 116); information panels use Sono SemiBold (font 138). Both were confirmed installed on the development device. The background JPEG is committed, so drawing is optional.
 
 For visual design from scratch, run `npm run editor`, open its printed localhost URL, choose a template or new design, and select your AstroToo in its device controls. The editor stores its own designs; the Code Clock metadata here is intended for the scripted LAN workflow.
 
