@@ -3,6 +3,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import struct
+import math
 
 assets = Path(__file__).resolve().parents[1] / 'faces/code-clock/assets'
 def divm(path, frames, delay):
@@ -29,6 +30,23 @@ for active in range(2):
     states.append(frame)
 states[0].convert('RGB').save(assets / 'ampm.webp', save_all=True, append_images=[states[1].convert('RGB')], quality=95, duration=1000, loop=0)
 divm(assets / 'ampm.bin', states, 1000)
+
+# Native PHASE_MOON selects one of eight lunar-state frames, starting at new moon.
+moons = []
+for phase in range(8):
+    frame = Image.new('RGB', (112, 112), '#030609')
+    pixels = frame.load()
+    angle = 2 * math.pi * phase / 8
+    for py in range(112):
+        for px in range(112):
+            x, y = (px - 55.5) / 50, (py - 55.5) / 50
+            radius = x*x + y*y
+            if radius <= 1:
+                z = math.sqrt(1 - radius)
+                lit = x * math.sin(angle) - z * math.cos(angle) > 0
+                pixels[px, py] = (215, 230, 224) if lit else (37, 52, 47)
+    moons.append(frame.resize((28, 28), Image.Resampling.LANCZOS))
+divm(assets / 'moon.bin', moons, 1000)
 
 sheet_path = assets / 'cockapoo-sheet.png'
 if sheet_path.exists():
