@@ -17,7 +17,9 @@
     "publish:check": "node scripts/publish/submit.mjs",
     "publish:submit": "node scripts/publish/submit.mjs --submit",
     "publish:status": "node scripts/publish/status.mjs",
-    "test:publish": "node --test scripts/publish/publish.test.mjs"
+    "test:publish": "node --test scripts/publish/publish.test.mjs",
+    "review:watch": "node scripts/publish/watch-review.mjs",
+    "review:schedule": "pwsh -File scripts/publish/schedule-review.ps1"
   },
   "engines": { "node": ">=20" }
 }

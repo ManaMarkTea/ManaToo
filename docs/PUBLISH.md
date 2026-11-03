@@ -50,6 +50,18 @@ npm run publish:status
 
 This reads the official server using the actual device ID and custom clock ID. Output is one of: no online record, private, awaiting user reply, pending Divoom review, published, rejected, or an explicit error/unknown status. Review messages are saved in `exports/publish/review-history.json`. Use **Review history** in the official editor if Divoom asks for a response.
 
+## Hourly review monitoring on Windows
+
+`npm run review:schedule` creates the current user's `ManaToo-PublicReview-Hourly` Task Scheduler job. It starts at the next whole hour, checks hourly for three days, and expires automatically. To choose a different duration, use `npm run review:schedule -- -Days 5` (1–14 days).
+
+Checks use the prepared candidate's cached device ID, so the AstroToo itself need not remain on the LAN. This PC must be on, online, and logged in. Missed checks can run after the PC becomes available; the job does not wake a sleeping PC. Status changes trigger a Windows desktop balloon notification (subject to Windows notification settings).
+
+`exports/review-watch/latest.json` contains the last successful result; `checks.jsonl` contains timestamped checks and errors. Network errors preserve the previous known status. `npm run review:watch` runs a check manually during the monitoring period. The task expires after the configured period and Windows removes it one hour later. To stop it early:
+
+```powershell
+Unregister-ScheduledTask -TaskName ManaToo-PublicReview-Hourly -Confirm:$false
+```
+
 ## Later versions
 
 Update `package.json` and `config/publish.json` release notes, then rebuild, deploy, and prepare again:

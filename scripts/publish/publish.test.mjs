@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { clockId, publishCandidate, verifyCandidate, verifyLayout } from './common.mjs';
+import { readReviewStatus, shouldNotify } from './review-api.mjs';
 
 const manifest = { deviceId: 123, clockId, title: 'Puppy Mia Time System', categoryId: 30, messageInfo: 'v0.1.0: Initial release.', sourceMetadataSha256: 'source', fileHashes: { 'preview.webp': 'preview' } };
 test('default is a dry run and invokes no write callbacks', async () => {
@@ -38,4 +39,24 @@ test('device layout must match, while normalized colors are accepted', () => {
   const source = { ItemList: [{ item_id: 'time', disp: 4, x: 12, color_1: '#ABCDEF' }] };
   assert.doesNotThrow(() => verifyLayout(source, { ClockId: clockId, ItemList: [{ ...source.ItemList[0], color_1: '#abcdef' }] }));
   assert.throws(() => verifyLayout(source, { ClockId: clockId, ItemList: [{ ...source.ItemList[0], x: 13 }] }), /differs/);
+});
+test('review watcher notifies on status changes, not unchanged pending state', () => {
+  assert.equal(shouldNotify(undefined, { status: 2 }), false);
+  assert.equal(shouldNotify({ status: 2 }, { status: 2 }), false);
+  assert.equal(shouldNotify({ status: 2 }, { status: 3 }), true);
+  assert.equal(shouldNotify({ status: 2 }, { status: 1 }), true);
+  assert.equal(shouldNotify({ status: 2 }, { status: null }), false);
+});
+test('review check matches the intended clock and tolerates a history failure', async () => {
+  let calls = 0;
+  const fetchMock = async (url, options) => {
+    calls++;
+    assert.equal(JSON.parse(options.body).DeviceId, 123);
+    if (calls === 1) return { ok: true, json: async () => ({ ReturnCode: 0, ClockList: [{ ClockId: 999, Status: 3 }, { ClockId: clockId, Status: 2 }] }) };
+    throw new Error('History unavailable');
+  };
+  const result = await readReviewStatus(123, clockId, fetchMock);
+  assert.equal(result.status, 2);
+  assert.equal(result.label, 'Pending Divoom review');
+  assert.match(result.historyError, /History unavailable/);
 });
