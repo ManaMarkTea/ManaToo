@@ -46,6 +46,22 @@ function SunIcon($icon) {
   $pen.Dispose()
   $g.Restore($state)
 }
+function WindIcon($icon) {
+  $state = $g.Save()
+  $g.TranslateTransform([single]$icon.x,[single]$icon.y)
+  $g.SmoothingMode = [Drawing.Drawing2D.SmoothingMode]::AntiAlias
+  $pen = [Drawing.Pen]::new([Drawing.ColorTranslator]::FromHtml($icon.color),1.6)
+  $path = [Drawing.Drawing2D.GraphicsPath]::new()
+  $path.AddLine(0,7,14,7)
+  $path.AddArc(10,1,8,6,90,-270)
+  $g.DrawPath($pen,$path)
+  $g.DrawLine($pen,0,12,22,12)
+  $path.Reset()
+  $path.AddLine(0,17,12,17)
+  $path.AddArc(8,17,8,6,270,270)
+  $g.DrawPath($pen,$path)
+  $path.Dispose(); $pen.Dispose(); $g.Restore($state)
+}
 $background = [Drawing.Bitmap]::new(480,480)
 $g = [Drawing.Graphics]::FromImage($background)
 $g.Clear([Drawing.ColorTranslator]::FromHtml($layout.canvas.background))
@@ -66,7 +82,9 @@ foreach ($panel in $layout.panels) {
     Text $labelText $label.x $label.y $label.color
   }
   foreach ($line in $panel.codeLines) { CodeLine $line }
-  foreach ($icon in $panel.icons) { SunIcon $icon }
+  foreach ($icon in $panel.icons) {
+    if ($icon.kind -eq 'wind') { WindIcon $icon } else { SunIcon $icon }
+  }
   $bitmap.Save((Join-Path $faceDirectory "assets/panel-$($panel.id).png"),[Drawing.Imaging.ImageFormat]::Png)
   $g.Dispose(); $bitmap.Dispose()
 }

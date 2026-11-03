@@ -51,48 +51,40 @@
       ]
     },
     {
-      "w": 340,
+      "w": 188,
       "id": "code-right",
       "y": 38,
       "labels": [],
       "x": 132,
       "h": 116,
-      "title": "> media/02  ~/NowPlaying.js",
+      "title": "> agent/02  ~/Display.js",
       "codeLines": [
         {
           "y": 35,
           "spans": [
             {
-              "text": "001  ",
-              "color": "#476673"
+              "color": "#476673",
+              "text": "001  "
             },
             {
-              "text": "const ",
-              "color": "#F57880"
+              "color": "#F57880",
+              "text": "const "
             },
             {
-              "text": "track ",
-              "color": "#B8CCD4"
+              "color": "#B8CCD4",
+              "text": "theme "
             },
             {
-              "text": "= ",
-              "color": "#78909C"
+              "color": "#78909C",
+              "text": "= "
             },
             {
-              "text": "audio",
-              "color": "#79CCD9"
+              "color": "#80DEA1",
+              "text": "\"midnight\""
             },
             {
-              "text": ".",
-              "color": "#78909C"
-            },
-            {
-              "text": "current",
-              "color": "#B8CCD4"
-            },
-            {
-              "text": ";",
-              "color": "#78909C"
+              "color": "#78909C",
+              "text": ";"
             }
           ],
           "x": 9
@@ -101,73 +93,79 @@
           "y": 52,
           "spans": [
             {
-              "text": "002  ",
-              "color": "#476673"
+              "color": "#476673",
+              "text": "002  "
             },
             {
-              "text": "await ",
-              "color": "#F57880"
+              "color": "#F57880",
+              "text": "await "
             },
             {
-              "text": "track",
-              "color": "#B8CCD4"
+              "color": "#EDC778",
+              "text": "render"
             },
             {
-              "text": ".",
-              "color": "#78909C"
-            },
-            {
-              "text": "display",
-              "color": "#EDC778"
-            },
-            {
-              "text": "();",
-              "color": "#78909C"
+              "color": "#78909C",
+              "text": "();"
             }
           ],
           "x": 9
-        }
-      ],
-      "items": [
-        {
-          "item_id": "song-title",
-          "disp": 219,
-          "font": 138,
-          "x": 10,
-          "y": 73,
-          "w": 320,
-          "h": 22,
-          "size": 15,
-          "alig": 4,
-          "sep": 0,
-          "angle": 0,
-          "hier": 2,
-          "transp": 100,
-          "animation": 0,
-          "image_id": 0,
-          "image_addr": "",
-          "color_1": "#6BE891",
-          "color_2": "#030609"
         },
         {
-          "item_id": "song-artist",
-          "disp": 490,
-          "font": 138,
-          "x": 10,
-          "y": 96,
-          "w": 320,
-          "h": 17,
-          "size": 11,
-          "alig": 4,
-          "sep": 0,
-          "angle": 0,
-          "hier": 2,
-          "transp": 100,
-          "animation": 0,
-          "image_id": 0,
-          "image_addr": "",
-          "color_1": "#79CCD9",
-          "color_2": "#030609"
+          "y": 69,
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "003  "
+            },
+            {
+              "color": "#F57880",
+              "text": "const "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "pet "
+            },
+            {
+              "color": "#78909C",
+              "text": "= "
+            },
+            {
+              "color": "#79CCD9",
+              "text": "Mia"
+            },
+            {
+              "color": "#78909C",
+              "text": ";"
+            }
+          ],
+          "x": 9
+        },
+        {
+          "y": 86,
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "004  "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "clock"
+            },
+            {
+              "color": "#78909C",
+              "text": "."
+            },
+            {
+              "color": "#EDC778",
+              "text": "render"
+            },
+            {
+              "color": "#78909C",
+              "text": "(pet);"
+            }
+          ],
+          "x": 9
         }
       ]
     },
@@ -429,11 +427,11 @@
           "item_id": "wind",
           "disp": 147,
           "font": 138,
-          "x": 348,
+          "x": 376,
           "y": 46,
-          "w": 106,
+          "w": 76,
           "h": 27,
-          "size": 14,
+          "size": 13,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -444,6 +442,14 @@
           "image_addr": "",
           "color_1": "#EDC778",
           "color_2": "#030609"
+        }
+      ],
+      "icons": [
+        {
+          "kind": "wind",
+          "y": 45,
+          "color": "#EDC778",
+          "x": 346
         }
       ]
     },
@@ -473,6 +479,56 @@
           "image_id": 0,
           "image_addr": "asset:cockapoo.bin",
           "color_1": "#6BE891",
+          "color_2": "#030609"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "x": 328,
+      "y": 38,
+      "w": 144,
+      "h": 116,
+      "title": "> audio/03 ~/Track",
+      "items": [
+        {
+          "item_id": "song-title",
+          "disp": 219,
+          "font": 138,
+          "x": 10,
+          "y": 31,
+          "w": 124,
+          "h": 46,
+          "size": 14,
+          "alig": 4,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#6BE891",
+          "color_2": "#030609"
+        },
+        {
+          "item_id": "song-artist",
+          "disp": 490,
+          "font": 138,
+          "x": 10,
+          "y": 84,
+          "w": 124,
+          "h": 25,
+          "size": 11,
+          "alig": 4,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#79CCD9",
           "color_2": "#030609"
         }
       ]
