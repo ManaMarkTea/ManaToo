@@ -2,6 +2,6 @@
   "title": "Puppy Mia Time System",
   "categoryId": 110,
   "categoryName": "Multi-Info Dashboards",
-  "description": "A terminal-style clock featuring Mia, an animated blonde cockapoo. Includes time with highlighted AM/PM, date, live battery and charging status, current weather, daily temperature range, sunrise, sunset, and a live moon-phase icon.",
+  "description": "A terminal-style clock featuring Mia, an animated blonde cockapoo. Includes time with highlighted AM/PM, date, live battery and charging status, current weather, daily temperature range, wind, sunrise, sunset, a live moon-phase icon, and native song/artist metadata when available.",
   "releaseNotes": "Initial public release."
 }
