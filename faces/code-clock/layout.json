@@ -30,28 +30,6 @@
     },
     {
       "w": 228,
-      "id": "code-left",
-      "y": 38,
-      "labels": [
-        {
-          "y": 35,
-          "x": 8,
-          "text": "001  const now = new Date();",
-          "color": "#B8CCD4"
-        },
-        {
-          "y": 52,
-          "x": 8,
-          "text": "002  clock.tick(now);",
-          "color": "#EDC778"
-        }
-      ],
-      "x": 8,
-      "h": 80,
-      "title": "> agent/01  ~/Clock.js"
-    },
-    {
-      "w": 228,
       "id": "code-right",
       "y": 38,
       "labels": [
@@ -73,7 +51,7 @@
       "title": "> agent/02  ~/Display.js"
     },
     {
-      "w": 340,
+      "w": 464,
       "id": "clock",
       "y": 126,
       "x": 8,
@@ -84,11 +62,11 @@
           "item_id": "time",
           "disp": 4,
           "font": 116,
-          "x": 0,
+          "x": 12,
           "y": 20,
-          "w": 274,
+          "w": 366,
           "h": 100,
-          "size": 42,
+          "size": 50,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -104,7 +82,7 @@
           "item_id": "ampm",
           "disp": 73,
           "font": 138,
-          "x": 258,
+          "x": 328,
           "y": 40,
           "w": 48,
           "h": 64,
@@ -329,20 +307,20 @@
     },
     {
       "id": "pet",
-      "x": 356,
-      "y": 126,
-      "w": 116,
-      "h": 126,
+      "x": 8,
+      "y": 38,
+      "w": 228,
+      "h": 80,
       "title": "> pet/Mia.js",
       "items": [
         {
           "item_id": "cockapoo",
           "disp": 13,
           "font": 116,
-          "x": 12,
-          "y": 27,
-          "w": 92,
-          "h": 92,
+          "x": 88,
+          "y": 25,
+          "w": 52,
+          "h": 52,
           "size": 0,
           "alig": 3,
           "sep": 0,

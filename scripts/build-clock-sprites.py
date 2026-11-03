@@ -4,6 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
 import struct
 import math
+import json
 
 assets = Path(__file__).resolve().parents[1] / 'faces/code-clock/assets'
 def divm(path, frames, delay):
@@ -52,12 +53,24 @@ sheet_path = assets / 'cockapoo-sheet.png'
 if sheet_path.exists():
     sheet = Image.open(sheet_path).convert('RGBA')
     cell_width = sheet.width // 4
+    cells = [sheet.crop((index * cell_width, 0, (index + 1) * cell_width, sheet.height)) for index in range(4)]
+    # Trim shared sprite-sheet margins while preserving registration between frames.
+    bounds = []
+    for cell in cells:
+        mask = cell.convert('RGB').point(lambda value: 255 if value > 80 else 0).convert('L')
+        bounds.append(mask.getbbox())
+    crop = (max(0, min(box[0] for box in bounds)-4), max(0, min(box[1] for box in bounds)-4),
+            min(cell_width, max(box[2] for box in bounds)+4), min(sheet.height, max(box[3] for box in bounds)+4))
+    layout = json.loads((assets.parent / 'layout.json').read_text())
+    pet = next(panel for panel in layout['panels'] if panel['id'] == 'pet')
+    sprite = next(item for item in pet['items'] if item['item_id'] == 'cockapoo')
+    target = (sprite['w'], sprite['h'])
     frames = []
-    for index in range(4):
-        cell = sheet.crop((index * cell_width, 0, (index + 1) * cell_width, sheet.height))
-        cell.thumbnail((92, 92), Image.Resampling.NEAREST)
-        frame = Image.new('RGBA', (92, 92), '#030609')
-        frame.alpha_composite(cell, ((92 - cell.width) // 2, (92 - cell.height) // 2))
+    for cell in cells:
+        cell = cell.crop(crop)
+        cell.thumbnail(target, Image.Resampling.NEAREST)
+        frame = Image.new('RGBA', target, '#030609')
+        frame.alpha_composite(cell, ((target[0] - cell.width) // 2, (target[1] - cell.height) // 2))
         frames.append(frame)
     frames[0].convert('RGB').save(assets / 'cockapoo.webp', save_all=True, append_images=[frame.convert('RGB') for frame in frames[1:]], duration=[220, 220, 220, 220], quality=95, loop=0, minimize_size=True)
     divm(assets / 'cockapoo.bin', frames, 220)
