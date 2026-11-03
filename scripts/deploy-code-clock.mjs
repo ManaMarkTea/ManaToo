@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 await mkdir(root + 'exports', { recursive: true });
 function call(name, args, output) {
-  const result = spawnSync(process.execPath, [root + 'scripts/mcp-call.mjs', name, args, output].filter(Boolean), { cwd: root, stdio: 'inherit' });
+  const result = spawnSync(process.execPath, [root + 'scripts/mcp-call.mjs', name, args ?? '', output ?? ''], { cwd: root, stdio: 'inherit' });
   if (result.error) throw result.error;
   if (result.status !== 0) throw new Error(`${name} failed. Read device state before retrying a write.`);
 }
