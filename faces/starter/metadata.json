@@ -1,0 +1,11 @@
+{
+  "ClockName": "ManaToo Starter",
+  "NameCn": "ManaToo Starter",
+  "NameEn": "ManaToo Starter",
+  "DialAssets": "image",
+  "ItemIdList": ["time", "date"],
+  "ItemList": [
+    { "item_id": "time", "disp": 4, "font": 28, "x": 40, "y": 160, "w": 400, "h": 110, "size": 88, "alig": 3, "sep": 0, "angle": 0, "hier": 2, "transp": 100, "animation": 0, "image_id": 0, "image_addr": "", "color_1": "#D7FBFF", "color_2": "#163B46" },
+    { "item_id": "date", "disp": 39, "font": 28, "x": 40, "y": 290, "w": 400, "h": 50, "size": 30, "alig": 3, "sep": 0, "angle": 0, "hier": 2, "transp": 100, "animation": 0, "image_id": 0, "image_addr": "", "color_1": "#D7FBFF", "color_2": "#163B46" }
+  ]
+}

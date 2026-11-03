@@ -1,0 +1,4 @@
+[
+  { "directory": "tools/astrotoo-editor", "repository": "https://github.com/DivoomDevelop/divoom-watchface-visual-editor_AstroToo.git", "commit": "c8c68c0ab20a7d6372cc914eeb0cfc44a4b9a4ac" },
+  { "directory": "tools/mcp-divoom-lan", "repository": "https://github.com/DivoomDevelop/mcp-divoom-lan.git", "commit": "9663f94ecd93e86684eb1171b42b92c1acade2fa" }
+]

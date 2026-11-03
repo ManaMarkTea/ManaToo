@@ -1,0 +1,7 @@
+tools/
+node_modules/
+exports/*
+!exports/.gitkeep
+config/device.local.json
+config/mcp.local.json
+*.log
