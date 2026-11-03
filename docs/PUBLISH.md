@@ -56,6 +56,8 @@ This reads the official server using the actual device ID and custom clock ID. O
 
 Checks use the prepared candidate's cached device ID, so the AstroToo itself need not remain on the LAN. This PC must be on, online, and logged in. Missed checks can run after the PC becomes available; the job does not wake a sleeping PC. Status changes trigger a Windows desktop balloon notification (subject to Windows notification settings).
 
+The scheduled entry point is a console-free Windows launcher built from `ReviewWatcherLauncher.cs` with Windows' installed .NET Framework compiler. It starts Node with `CreateNoWindow=true` and captures output to `exports/review-watch/launcher.log`; it does not start a PowerShell console for each hourly check. The generated executable stays in ignored `exports/`.
+
 `exports/review-watch/latest.json` contains the last successful result; `checks.jsonl` contains timestamped checks and errors. Network errors preserve the previous known status. `npm run review:watch` runs a check manually during the monitoring period. The task expires after the configured period and Windows removes it one hour later. To stop it early:
 
 ```powershell
