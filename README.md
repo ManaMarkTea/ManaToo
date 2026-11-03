@@ -35,4 +35,4 @@ Product catalogs: `tools/mcp-divoom-lan/resources/astrotoo/`. Full deployment in
 
 ## Tool versions
 
-Official repositories are pinned by commit in `config/toolchain.json` and installed under ignored `tools/`. Setup installs their locked dependencies and applies compatible audit fixes locally. Their own licenses apply. Custom sources and documentation live in this repository; upstream code, downloaded assets, local addresses, and build outputs are excluded.
+Official repositories are pinned by commit in `config/toolchain.json` and installed under ignored `tools/`. Setup installs their locked dependencies and applies compatible audit fixes locally. It also fixes an upstream reassigned `const` in the editor's pending-font cache so Vite development mode can start. Their own licenses apply. Custom sources and documentation live in this repository; upstream code, downloaded assets, local addresses, and build outputs are excluded.

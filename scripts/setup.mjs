@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
@@ -16,6 +16,12 @@ for (const tool of tools) {
   } else {
     const revision = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: directory, encoding: 'utf8' });
     if (revision.stdout?.trim() !== tool.commit) throw new Error(`Unexpected revision in ${tool.directory}; preserve local work before changing versions.`);
+  }
+  if (tool.directory === 'tools/astrotoo-editor') {
+    // Upstream reassigns this loop variable when a cached font is missing.
+    const cacheFile = new URL('../tools/astrotoo-editor/src/editor/pendingFontCache.js', import.meta.url);
+    const source = readFileSync(cacheFile, 'utf8');
+    writeFileSync(cacheFile, source.replace('for (const item of items)', 'for (let item of items)'));
   }
   run('npm', ['ci'], directory);
   run('npm', ['audit', 'fix'], directory);
