@@ -12,7 +12,12 @@
     "mcp": "node tools/mcp-divoom-lan/dist/index.js",
     "face:deploy": "node scripts/deploy-code-clock.mjs",
     "face:draw": "pwsh -File scripts/draw-code-clock.ps1 && node scripts/compile-code-clock.mjs",
-    "face:sprites": "python scripts/build-clock-sprites.py"
+    "face:sprites": "python scripts/build-clock-sprites.py",
+    "publish:prepare": "node scripts/publish/prepare.mjs",
+    "publish:check": "node scripts/publish/submit.mjs",
+    "publish:submit": "node scripts/publish/submit.mjs --submit",
+    "publish:status": "node scripts/publish/status.mjs",
+    "test:publish": "node --test scripts/publish/publish.test.mjs"
   },
   "engines": { "node": ">=20" }
 }

@@ -18,6 +18,8 @@ Open the local URL printed by Vite (normally http://127.0.0.1:5173). Select the 
 
 ## Authoring
 
+For public gallery submission, see [the publishing workflow](docs/PUBLISH.md). `npm run publish:prepare` builds a review candidate and preview; `npm run publish:check` validates it without publishing. `npm run publish:submit` is the separate action that sends it to Divoom for public review.
+
 The top-right header displays `MANATOO / LOCAL / v<version>` using `package.json`. After changing the version, run `npm run face:draw` and `npm run face:deploy` to update the device label.
 
 ### Code Screensaver clock
