@@ -22,8 +22,8 @@
         },
         {
           "y": 9,
-          "x": 370,
-          "text": "MANATOO / LOCAL",
+          "x": 324,
+          "text": "MANATOO / LOCAL / v{{version}}",
           "color": "#789DA9"
         }
       ]

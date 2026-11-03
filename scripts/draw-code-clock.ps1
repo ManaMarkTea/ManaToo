@@ -1,6 +1,7 @@
 Add-Type -AssemblyName System.Drawing
 $faceDirectory = Join-Path $PSScriptRoot '../faces/code-clock'
 $layout = Get-Content (Join-Path $faceDirectory 'layout.json') -Raw | ConvertFrom-Json
+$project = Get-Content (Join-Path $PSScriptRoot '../package.json') -Raw | ConvertFrom-Json
 $font = [Drawing.Font]::new('Consolas',10,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
 function Box($x,$y,$w,$h,$color) {
   $brush = [Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml($color))
@@ -37,7 +38,10 @@ foreach ($panel in $layout.panels) {
     Box 2 2 ($panel.w-4) 23 '#07100F'
     Text $panel.title 9 7 '#6BE891'
   } else { $g.Clear([Drawing.ColorTranslator]::FromHtml($panel.fill)) }
-  foreach ($label in $panel.labels) { Text $label.text $label.x $label.y $label.color }
+  foreach ($label in $panel.labels) {
+    $labelText = $label.text.Replace('{{version}}', $project.version)
+    Text $labelText $label.x $label.y $label.color
+  }
   foreach ($line in $panel.codeLines) { CodeLine $line }
   $bitmap.Save((Join-Path $faceDirectory "assets/panel-$($panel.id).png"),[Drawing.Imaging.ImageFormat]::Png)
   $g.Dispose(); $bitmap.Dispose()
