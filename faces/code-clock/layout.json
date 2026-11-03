@@ -73,7 +73,7 @@
       "title": "> agent/02  ~/Display.js"
     },
     {
-      "w": 464,
+      "w": 340,
       "id": "clock",
       "y": 126,
       "x": 8,
@@ -84,11 +84,11 @@
           "item_id": "time",
           "disp": 4,
           "font": 116,
-          "x": 16,
+          "x": 0,
           "y": 20,
-          "w": 432,
+          "w": 274,
           "h": 100,
-          "size": 50,
+          "size": 42,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -99,6 +99,26 @@
           "image_addr": "",
           "color_1": "#6BE891",
           "color_2": "#030609"
+        },
+        {
+          "item_id": "ampm",
+          "disp": 73,
+          "font": 138,
+          "x": 258,
+          "y": 40,
+          "w": 48,
+          "h": 64,
+          "size": 0,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "asset:ampm.bin",
+          "color_1": "#6BE891",
+          "color_2": "#30443A"
         }
       ]
     },
@@ -319,6 +339,36 @@
           "x": 352,
           "text": "LOCAL / NATIVE CLOCK",
           "color": "#789DA9"
+        }
+      ]
+    },
+    {
+      "id": "pet",
+      "x": 356,
+      "y": 126,
+      "w": 116,
+      "h": 126,
+      "title": "> pet/Mia.js",
+      "items": [
+        {
+          "item_id": "cockapoo",
+          "disp": 13,
+          "font": 116,
+          "x": 12,
+          "y": 27,
+          "w": 92,
+          "h": 92,
+          "size": 0,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "asset:cockapoo.bin",
+          "color_1": "#6BE891",
+          "color_2": "#030609"
         }
       ]
     }

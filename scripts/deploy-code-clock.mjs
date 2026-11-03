@@ -16,7 +16,7 @@ call('watchface_get_local', undefined, root + 'exports/before.json');
 for (const item of metadata.ItemList) {
   if (!item.image_addr?.startsWith('asset:')) continue;
   const filename = item.image_addr.slice(6);
-  if (!/^panel-[a-z-]+\.png$/.test(filename)) throw new Error('Invalid panel asset name.');
+  if (!/^[a-z0-9-]+\.(png|webp|bin)$/.test(filename)) throw new Error('Invalid asset name.');
   const request = root + 'exports/upload.json';
   const output = root + 'exports/upload-result.json';
   await writeFile(request, JSON.stringify({ filePath: root + 'faces/code-clock/assets/' + filename, metadata: { Command: 'Device/UploadLocalAsset' } }));
