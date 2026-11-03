@@ -43,7 +43,10 @@ for charging in (False, True):
         draw.rectangle((1, 5, 27, 17), outline='#789DA9', width=1)
         draw.rectangle((28, 9, 30, 13), fill='#789DA9')
         draw.rectangle((3, 7, 3 + max(1, round(22 * band / 10)), 15), fill=color)
-        draw.text((34, 4), f'{band * 10}%', font=battery_font, fill=color)
+        label = f'{band * 10}%'
+        bounds = draw.textbbox((0, 0), label, font=battery_font)
+        text_y = 11 - (bounds[3] - bounds[1]) / 2 - bounds[1]
+        draw.text((34, round(text_y)), label, font=battery_font, fill=color)
         if charging:
             draw.polygon([(71, 4), (66, 11), (70, 11), (67, 18), (74, 9), (70, 9)], fill='#EDC778')
         batteries.append(frame)
