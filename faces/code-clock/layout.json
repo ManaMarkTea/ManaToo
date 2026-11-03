@@ -29,32 +29,157 @@
       ]
     },
     {
-      "w": 228,
+      "w": 340,
       "id": "code-right",
       "y": 38,
-      "labels": [
+      "labels": [],
+      "x": 132,
+      "h": 116,
+      "title": "> agent/02  ~/Display.js",
+      "codeLines": [
         {
           "y": 35,
-          "x": 8,
-          "text": "001  theme = \"midnight\";",
-          "color": "#80DEA1"
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "001  "
+            },
+            {
+              "color": "#F57880",
+              "text": "const "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "theme "
+            },
+            {
+              "color": "#78909C",
+              "text": "= "
+            },
+            {
+              "color": "#80DEA1",
+              "text": "\"midnight\""
+            },
+            {
+              "color": "#78909C",
+              "text": ";"
+            }
+          ],
+          "x": 9
         },
         {
           "y": 52,
-          "x": 8,
-          "text": "002  await render();",
-          "color": "#79CCD9"
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "002  "
+            },
+            {
+              "color": "#F57880",
+              "text": "await "
+            },
+            {
+              "color": "#EDC778",
+              "text": "render"
+            },
+            {
+              "color": "#78909C",
+              "text": "();"
+            }
+          ],
+          "x": 9
+        },
+        {
+          "y": 69,
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "003  "
+            },
+            {
+              "color": "#F57880",
+              "text": "const "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "pet "
+            },
+            {
+              "color": "#78909C",
+              "text": "= "
+            },
+            {
+              "color": "#F57880",
+              "text": "new "
+            },
+            {
+              "color": "#79CCD9",
+              "text": "Cockapoo"
+            },
+            {
+              "color": "#78909C",
+              "text": "("
+            },
+            {
+              "color": "#80DEA1",
+              "text": "\"Mia\""
+            },
+            {
+              "color": "#78909C",
+              "text": ");"
+            }
+          ],
+          "x": 9
+        },
+        {
+          "y": 86,
+          "spans": [
+            {
+              "color": "#476673",
+              "text": "004  "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "clock"
+            },
+            {
+              "color": "#78909C",
+              "text": "."
+            },
+            {
+              "color": "#EDC778",
+              "text": "render"
+            },
+            {
+              "color": "#78909C",
+              "text": "({ "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "theme"
+            },
+            {
+              "color": "#78909C",
+              "text": ", "
+            },
+            {
+              "color": "#B8CCD4",
+              "text": "pet"
+            },
+            {
+              "color": "#78909C",
+              "text": " });"
+            }
+          ],
+          "x": 9
         }
-      ],
-      "x": 244,
-      "h": 80,
-      "title": "> agent/02  ~/Display.js"
+      ]
     },
     {
-      "w": 464,
+      "w": 300,
       "id": "clock",
-      "y": 126,
-      "x": 8,
+      "y": 162,
+      "x": 172,
       "h": 126,
       "title": "> clock/00  ~/LocalTime.js",
       "items": [
@@ -62,11 +187,11 @@
           "item_id": "time",
           "disp": 4,
           "font": 116,
-          "x": 12,
+          "x": 2,
           "y": 20,
-          "w": 366,
+          "w": 224,
           "h": 100,
-          "size": 50,
+          "size": 42,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -82,7 +207,7 @@
           "item_id": "ampm",
           "disp": 73,
           "font": 138,
-          "x": 328,
+          "x": 238,
           "y": 40,
           "w": 48,
           "h": 64,
@@ -101,22 +226,22 @@
       ]
     },
     {
-      "w": 228,
+      "w": 156,
       "id": "date",
-      "y": 260,
+      "y": 162,
       "x": 8,
-      "h": 86,
-      "title": "> date/01  ~/Calendar.js",
+      "h": 126,
+      "title": "> date/01  ~/Date.js",
       "items": [
         {
           "item_id": "date",
           "disp": 39,
           "font": 138,
-          "x": 12,
-          "y": 31,
-          "w": 204,
+          "x": 8,
+          "y": 50,
+          "w": 140,
           "h": 25,
-          "size": 22,
+          "size": 20,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -132,11 +257,11 @@
           "item_id": "weekday",
           "disp": 37,
           "font": 138,
-          "x": 12,
-          "y": 60,
-          "w": 204,
+          "x": 8,
+          "y": 84,
+          "w": 140,
           "h": 20,
-          "size": 14,
+          "size": 16,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -151,36 +276,36 @@
       ]
     },
     {
-      "x": 244,
-      "w": 228,
+      "x": 8,
+      "w": 464,
       "h": 86,
-      "y": 260,
+      "y": 386,
       "id": "sun",
       "labels": [
         {
-          "y": 34,
-          "x": 12,
+          "color": "#EDC778",
           "text": "RISE",
-          "color": "#EDC778"
+          "y": 43,
+          "x": 12
         },
         {
-          "y": 59,
-          "x": 12,
+          "color": "#F57880",
           "text": "SET",
-          "color": "#F57880"
+          "y": 43,
+          "x": 166
         }
       ],
-      "title": "> sun/02  ~/Daylight.js",
+      "title": "> sky/02  ~/SunMoon.js",
       "items": [
         {
           "item_id": "sunrise",
           "disp": 176,
           "font": 138,
-          "x": 56,
-          "y": 29,
-          "w": 160,
+          "x": 58,
+          "y": 35,
+          "w": 94,
           "h": 25,
-          "size": 21,
+          "size": 20,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -196,11 +321,11 @@
           "item_id": "sunset",
           "disp": 177,
           "font": 138,
-          "x": 56,
-          "y": 54,
-          "w": 160,
+          "x": 206,
+          "y": 35,
+          "w": 94,
           "h": 25,
-          "size": 21,
+          "size": 20,
           "alig": 3,
           "sep": 0,
           "angle": 0,
@@ -211,86 +336,15 @@
           "image_addr": "",
           "color_1": "#F57880",
           "color_2": "#030609"
-        }
-      ]
-    },
-    {
-      "x": 8,
-      "w": 464,
-      "h": 118,
-      "y": 354,
-      "id": "weather",
-      "labels": [],
-      "title": "> weather/03  ~/Forecast.js",
-      "items": [
-        {
-          "item_id": "temperature",
-          "disp": 254,
-          "font": 138,
-          "x": 8,
-          "y": 48,
-          "w": 104,
-          "h": 44,
-          "size": 30,
-          "alig": 3,
-          "sep": 0,
-          "angle": 0,
-          "hier": 2,
-          "transp": 100,
-          "animation": 0,
-          "image_id": 0,
-          "image_addr": "",
-          "color_1": "#6BE891",
-          "color_2": "#030609"
-        },
-        {
-          "item_id": "weather",
-          "disp": 54,
-          "font": 138,
-          "x": 120,
-          "y": 57,
-          "w": 112,
-          "h": 30,
-          "size": 16,
-          "alig": 3,
-          "sep": 0,
-          "angle": 0,
-          "hier": 2,
-          "transp": 100,
-          "animation": 0,
-          "image_id": 0,
-          "image_addr": "",
-          "color_1": "#79CCD9",
-          "color_2": "#030609"
-        },
-        {
-          "item_id": "range",
-          "disp": 157,
-          "font": 138,
-          "x": 232,
-          "y": 59,
-          "w": 112,
-          "h": 27,
-          "size": 14,
-          "alig": 3,
-          "sep": 0,
-          "angle": 0,
-          "hier": 2,
-          "transp": 100,
-          "animation": 0,
-          "image_id": 0,
-          "image_addr": "",
-          "color_1": "#B8CCD4",
-          "color_2": "#030609"
         },
         {
           "item_id": "moon-icon",
           "disp": 207,
           "font": 138,
-          "x": 376,
-          "y": 43,
-          "w": 48,
-          "h": 48,
+          "x": 366,
+          "y": 31,
+          "w": 44,
+          "h": 44,
           "size": 0,
           "alig": 3,
           "sep": 0,
@@ -306,21 +360,92 @@
       ]
     },
     {
+      "x": 8,
+      "w": 464,
+      "h": 82,
+      "y": 296,
+      "id": "weather",
+      "labels": [],
+      "title": "> weather/03  ~/Forecast.js",
+      "items": [
+        {
+          "item_id": "temperature",
+          "disp": 254,
+          "font": 138,
+          "x": 14,
+          "y": 35,
+          "w": 130,
+          "h": 44,
+          "size": 28,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#6BE891",
+          "color_2": "#030609"
+        },
+        {
+          "item_id": "weather",
+          "disp": 54,
+          "font": 138,
+          "x": 166,
+          "y": 43,
+          "w": 140,
+          "h": 30,
+          "size": 18,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#79CCD9",
+          "color_2": "#030609"
+        },
+        {
+          "item_id": "range",
+          "disp": 157,
+          "font": 138,
+          "x": 314,
+          "y": 46,
+          "w": 138,
+          "h": 27,
+          "size": 14,
+          "alig": 3,
+          "sep": 0,
+          "angle": 0,
+          "hier": 2,
+          "transp": 100,
+          "animation": 0,
+          "image_id": 0,
+          "image_addr": "",
+          "color_1": "#B8CCD4",
+          "color_2": "#030609"
+        }
+      ]
+    },
+    {
       "id": "pet",
       "x": 8,
       "y": 38,
-      "w": 228,
-      "h": 80,
-      "title": "> pet/Mia.js",
+      "w": 116,
+      "h": 116,
+      "title": "> pet/Mia.webp",
       "items": [
         {
           "item_id": "cockapoo",
           "disp": 13,
           "font": 116,
-          "x": 88,
-          "y": 25,
-          "w": 52,
-          "h": 52,
+          "x": 14,
+          "y": 26,
+          "w": 88,
+          "h": 88,
           "size": 0,
           "alig": 3,
           "sep": 0,

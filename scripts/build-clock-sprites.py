@@ -72,5 +72,5 @@ if sheet_path.exists():
         frame = Image.new('RGBA', target, '#030609')
         frame.alpha_composite(cell, ((target[0] - cell.width) // 2, (target[1] - cell.height) // 2))
         frames.append(frame)
-    frames[0].convert('RGB').save(assets / 'cockapoo.webp', save_all=True, append_images=[frame.convert('RGB') for frame in frames[1:]], duration=[220, 220, 220, 220], quality=95, loop=0, minimize_size=True)
+    frames[0].convert('RGB').save(assets / 'Mia.webp', save_all=True, append_images=[frame.convert('RGB') for frame in frames[1:]], duration=[220, 220, 220, 220], quality=95, loop=0, minimize_size=True)
     divm(assets / 'cockapoo.bin', frames, 220)

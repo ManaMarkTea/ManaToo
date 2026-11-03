@@ -10,6 +10,18 @@ function Text($value,$x,$y,$color) {
   $brush = [Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml($color))
   $script:g.DrawString($value,$font,$brush,[single]$x,[single]$y); $brush.Dispose()
 }
+function CodeLine($line) {
+  $position = [single]$line.x
+  $format = [Drawing.StringFormat]::GenericTypographic.Clone()
+  $format.FormatFlags = $format.FormatFlags -bor [Drawing.StringFormatFlags]::MeasureTrailingSpaces
+  foreach ($span in $line.spans) {
+    $brush = [Drawing.SolidBrush]::new([Drawing.ColorTranslator]::FromHtml($span.color))
+    $g.DrawString($span.text,$font,$brush,[Drawing.PointF]::new($position,[single]$line.y),$format)
+    $position += $g.MeasureString($span.text,$font,[Drawing.PointF]::Empty,$format).Width
+    $brush.Dispose()
+  }
+  $format.Dispose()
+}
 $background = [Drawing.Bitmap]::new(480,480)
 $g = [Drawing.Graphics]::FromImage($background)
 $g.Clear([Drawing.ColorTranslator]::FromHtml($layout.canvas.background))
@@ -26,6 +38,7 @@ foreach ($panel in $layout.panels) {
     Text $panel.title 9 7 '#6BE891'
   } else { $g.Clear([Drawing.ColorTranslator]::FromHtml($panel.fill)) }
   foreach ($label in $panel.labels) { Text $label.text $label.x $label.y $label.color }
+  foreach ($line in $panel.codeLines) { CodeLine $line }
   $bitmap.Save((Join-Path $faceDirectory "assets/panel-$($panel.id).png"),[Drawing.Imaging.ImageFormat]::Png)
   $g.Dispose(); $bitmap.Dispose()
 }
