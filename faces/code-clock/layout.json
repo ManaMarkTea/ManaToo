@@ -303,20 +303,7 @@
       "h": 86,
       "y": 386,
       "id": "sun",
-      "labels": [
-        {
-          "color": "#EDC778",
-          "text": "RISE",
-          "y": 43,
-          "x": 12
-        },
-        {
-          "color": "#F57880",
-          "text": "SET",
-          "y": 43,
-          "x": 166
-        }
-      ],
+      "labels": [],
       "title": "> sky/02  ~/SunMoon.js",
       "items": [
         {
@@ -378,6 +365,20 @@
           "image_addr": "asset:moon.bin",
           "color_1": "#B8CCD4",
           "color_2": "#030609"
+        }
+      ],
+      "icons": [
+        {
+          "kind": "sunrise",
+          "y": 31,
+          "color": "#EDC778",
+          "x": 14
+        },
+        {
+          "kind": "sunset",
+          "y": 31,
+          "color": "#F57880",
+          "x": 168
         }
       ]
     },

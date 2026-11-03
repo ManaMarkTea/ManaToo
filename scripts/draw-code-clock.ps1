@@ -23,6 +23,29 @@ function CodeLine($line) {
   }
   $format.Dispose()
 }
+function SunIcon($icon) {
+  $state = $g.Save()
+  $g.TranslateTransform([single]$icon.x,[single]$icon.y)
+  $g.SmoothingMode = [Drawing.Drawing2D.SmoothingMode]::AntiAlias
+  $pen = [Drawing.Pen]::new([Drawing.ColorTranslator]::FromHtml($icon.color),1.6)
+  $g.DrawArc($pen,7,14,14,14,180,180)
+  $g.DrawLine($pen,1,22,27,22)
+  $g.DrawLine($pen,5,26,23,26)
+  $g.DrawLine($pen,0,15,4,17)
+  $g.DrawLine($pen,24,17,28,15)
+  $g.DrawLine($pen,5,8,8,11)
+  $g.DrawLine($pen,20,11,23,8)
+  $g.DrawLine($pen,14,1,14,9)
+  if ($icon.kind -eq 'sunrise') {
+    $g.DrawLine($pen,11,4,14,1)
+    $g.DrawLine($pen,14,1,17,4)
+  } else {
+    $g.DrawLine($pen,11,6,14,9)
+    $g.DrawLine($pen,14,9,17,6)
+  }
+  $pen.Dispose()
+  $g.Restore($state)
+}
 $background = [Drawing.Bitmap]::new(480,480)
 $g = [Drawing.Graphics]::FromImage($background)
 $g.Clear([Drawing.ColorTranslator]::FromHtml($layout.canvas.background))
@@ -43,6 +66,7 @@ foreach ($panel in $layout.panels) {
     Text $labelText $label.x $label.y $label.color
   }
   foreach ($line in $panel.codeLines) { CodeLine $line }
+  foreach ($icon in $panel.icons) { SunIcon $icon }
   $bitmap.Save((Join-Path $faceDirectory "assets/panel-$($panel.id).png"),[Drawing.Imaging.ImageFormat]::Png)
   $g.Dispose(); $bitmap.Dispose()
 }
