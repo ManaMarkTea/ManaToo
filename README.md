@@ -18,6 +18,20 @@ Open the local URL printed by Vite (normally http://127.0.0.1:5173). Select the 
 
 ## Authoring
 
+### Code Screensaver clock
+
+`faces/code-clock/` contains a terminal-style face inspired by ManaRenderer's CodeScreensaver: near-black panels, green outlines, line numbers, and syntax-colored snippets. Code panels are static artwork; the time and date are native live device elements. It runs without a connected PC.
+
+```powershell
+npm run face:deploy
+```
+
+This creates or updates the MCP-managed custom face, selects it, reads it back, and saves a device screenshot as `exports/code-clock.bmp`. It also saves the previously displayed configuration in `exports/before.json`. Other stock clockfaces remain available through the Divoom app.
+
+To customize: change time/date colors, positions, or sizes in `faces/code-clock/metadata.json`; edit `scripts/draw-code-clock.ps1` for the terminal artwork, then run `npm run face:draw` (Windows PowerShell + System.Drawing) and `npm run face:deploy`. Font 28 was confirmed installed on the development device. The background JPEG is committed, so drawing is optional.
+
+For visual design from scratch, run `npm run editor`, open its printed localhost URL, choose a template or new design, and select your AstroToo in its device controls. The editor stores its own designs; the Code Clock metadata here is intended for the scripted LAN workflow.
+
 - Save source designs under `faces/<name>/`, images under its `assets/` directory, and generated exports under `exports/`.
 - `faces/starter/metadata.json` is a minimal LAN creation metadata example, not an editor project file. Create a design in the editor for visual editing.
 - Canvas: 480×480. Backdrop: JPEG or WebP, strictly smaller than 512000 bytes. AstroToo does not accept watchface TAR/TGZ/ZIP bundles.

@@ -1,0 +1,11 @@
+{
+  "ClockName": "Mana Code Clock",
+  "NameEn": "Mana Code Clock",
+  "NameCn": "Mana Code Clock",
+  "DialAssets": "image",
+  "ItemIdList": ["time", "date"],
+  "ItemList": [
+    { "item_id": "time", "disp": 4, "font": 28, "x": 25, "y": 213, "w": 430, "h": 86, "size": 76, "alig": 3, "sep": 0, "angle": 0, "hier": 2, "transp": 100, "animation": 0, "image_id": 0, "image_addr": "", "color_1": "#6BE891", "color_2": "#030609" },
+    { "item_id": "date", "disp": 39, "font": 28, "x": 80, "y": 299, "w": 320, "h": 25, "size": 19, "alig": 3, "sep": 0, "angle": 0, "hier": 2, "transp": 100, "animation": 0, "image_id": 0, "image_addr": "", "color_1": "#B8CCD4", "color_2": "#030609" }
+  ]
+}
