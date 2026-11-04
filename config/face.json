@@ -1,0 +1,8 @@
+{
+  "music": true,
+  "weather": true,
+  "stocks": {
+    "enabled": false,
+    "symbols": []
+  }
+}

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { stockApp } from './face-options.mjs';
 const face = new URL('../faces/code-clock/', import.meta.url);
-const layout = JSON.parse(await readFile(new URL('layout.json', face), 'utf8'));
+const layout = JSON.parse(await readFile(new URL('resolved-layout.json', face), 'utf8'));
 // Reserve the primary NET_PIC slot (13) for Mia's looping animation.
 const imageSlots = [175, 125, 126, 127, 128, 129, 130, 173, 174];
 if (layout.panels.length > imageSlots.length) throw new Error('Too many panel image slots.');
@@ -11,6 +12,9 @@ for (const [index, panel] of layout.panels.entries()) {
   for (const item of panel.items ?? []) items.push({ ...item, x: panel.x + item.x, y: panel.y + item.y, hier: 2 });
 }
 const metadata = { ClockName: layout.name, NameEn: layout.name, NameCn: layout.name, DialAssets: 'image', ItemList: items, ItemIdList: items.map(item => item.item_id) };
+const options = JSON.parse(await readFile(new URL('../config/face.json', import.meta.url), 'utf8'));
+metadata.AppList = stockApp(options);
+metadata.AppNum = metadata.AppList.length;
 if (new Set(metadata.ItemIdList).size !== items.length) throw new Error('Duplicate item IDs.');
 const gallerySlots = items.filter(item => [13, ...imageSlots].includes(item.disp)).map(item => item.disp);
 if (new Set(gallerySlots).size !== gallerySlots.length) throw new Error('Duplicate image slots.');

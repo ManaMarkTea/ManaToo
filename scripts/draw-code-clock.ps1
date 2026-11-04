@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.Drawing
 $faceDirectory = Join-Path $PSScriptRoot '../faces/code-clock'
-$layout = Get-Content (Join-Path $faceDirectory 'layout.json') -Raw | ConvertFrom-Json
+$layout = Get-Content (Join-Path $faceDirectory 'resolved-layout.json') -Raw | ConvertFrom-Json
 $project = Get-Content (Join-Path $PSScriptRoot '../package.json') -Raw | ConvertFrom-Json
 $font = [Drawing.Font]::new('Consolas',10,[Drawing.FontStyle]::Regular,[Drawing.GraphicsUnit]::Pixel)
 function Box($x,$y,$w,$h,$color) {

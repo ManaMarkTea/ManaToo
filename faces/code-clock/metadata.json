@@ -510,5 +510,7 @@
     "panel-music",
     "song-title",
     "song-artist"
-  ]
+  ],
+  "AppList": [],
+  "AppNum": 0
 }

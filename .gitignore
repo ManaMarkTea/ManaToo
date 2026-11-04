@@ -5,3 +5,4 @@ exports/*
 config/device.local.json
 config/mcp.local.json
 *.log
+faces/code-clock/resolved-layout.json
