@@ -21,13 +21,22 @@ These are project settings, applied by redeploying from the PC. Custom switches 
 the Divoom phone app are not supported by this workflow. The face runs independently
 after deployment.
 
-Stocks are experimental until verified with your selected symbols on the device.
+Stocks are currently blocked for device deployment. A live test on firmware 530068
+found that both multipart and JSON-only local-clock writes discard AppList/AppNum,
+returning AppNum 0 and leaving the native stock fields blank. The decorative panel
+has been restored, and deployment now rejects enabled stocks before changing the
+device. Symbols can still be saved for a future supported integration.
+
 The implementation follows Divoom's bundled U.S. Stocks template (162): native
 rotating app title, price and percent-change fields, AppID 614, and its stock-list
 configuration. It supports up to ten symbols and uses Divoom's data service;
 availability and refresh depend on that service. No separate API key is needed.
 Stock lists are stored in the face's AppList configuration; a shared global list
 has not been established. No custom phone-app toggles have been established either.
+
+The user's initial selection is saved as DJI (Dow Jones). The Divoom service returned
+a populated quote for DJI, but NYA, ^NYA, NYSE, and NYA.IND returned zero placeholders;
+no NYSE Composite entry was added.
 
 Public source reference:
 https://github.com/DivoomDevelop/divoom-watchface-visual-editor_AstroToo/blob/main/public/template/config/162.cfg

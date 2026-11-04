@@ -3,6 +3,8 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { stockApp } from './face-options.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
+const requestedOptions = JSON.parse(await readFile(root + 'config/face.json', 'utf8'));
+if (requestedOptions.stocks.enabled) throw new Error('Native stocks are not supported by the tested local-clock API: firmware 530068 discards AppList/AppNum. Keep stocks off until a supported integration is available.');
 await mkdir(root + 'exports', { recursive: true });
 function call(name, args, output) {
   const result = spawnSync(process.execPath, [root + 'scripts/mcp-call.mjs', name, args ?? '', output ?? ''], { cwd: root, stdio: 'inherit' });

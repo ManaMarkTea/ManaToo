@@ -3,6 +3,8 @@
   "weather": true,
   "stocks": {
     "enabled": false,
-    "symbols": []
+    "symbols": [
+      "DJI"
+    ]
   }
 }
